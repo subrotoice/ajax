@@ -19,4 +19,3 @@ $("form.studentEntry").submit(function(evt){
   });
   $('form.studentEntry').trigger("reset");
 });
- 
