@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Contact Us</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300i,400" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.subroto.net">Brand</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="contact-us">
+
+    <div class="container">
+  		<div class="row">
+  			<div class="col-sm-5">
+  				<div class="text-wrapper">
+  					<h2>Ajax Contact Form</h2>
+  					<div class="address-block">
+  						<h3>ADDRESS 1</h3>
+  						<ul class="simple-list">
+  							<li><i class="fa fa-location-pin"></i>Adress: Middle Badda, Gulshan-1 , Dhaka, Bangladesh</li>
+  							<li><i class="fa fa-phone"></i>Phone: +8801722272790</li>
+  							<li><i class="fa fa-phone"></i>Fax: 123456789xxxx</li>
+  							<li><i class="fa fa-envelope"></i>Email: <a href="mailto:subroto.iu@gmail.com">subroto.iu@gmail.com</a></li>
+  						</ul>
+  					</div>
+  					<div class="address-block last">
+  						<h3>ADDRESS 2</h3>
+  						<ul class="simple-list">
+  							<li><i class="fa fa-location-pin"></i>Adress: Middle Badda, Gulshan-1 , Dhaka, Bangladesh</li>
+  							<li><i class="fa fa-phone"></i>Phone: +8801722272790</li>
+  							<li><i class="fa fa-phone"></i>Fax: 123456789xxxx</li>
+  							<li><i class="fa fa-envelope"></i>Email: <a href="mailto:subroto.iu@gmail.com">subroto.iu@gmail.com</a></li>
+  						</ul>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col-sm-7">
+  				<div class="text-wrapper">
+  					<h2>Contact Information</h2>
+  					<p id="contactFormSuccess">Your email was send successfully!</p>
+  					<p id="contactFormError">Error, try to submit this form again.</p>
+  					<form method="post" name="contactform" class="contact-form white" id="contactform" action="process.php">
+  						<label>Name<span class="required">*</span></label>
+  						<input type="text" name="name" class="form-control input-lg" required>
+  						<label>E-mail<span class="required">*</span></label>
+  						<input type="email" name="email" class="form-control input-lg" required>
+  						<label>Comment<span class="required">*</span></label>
+  						<textarea name="message" class="form-control input-lg"></textarea>
+  						<div class="statusSign">
+  							<button id="submit" type="submit" class="btn btn-lg">Submit</button>
+                <img src="spin.gif" alt="HTML5 Icon">
+                <i class="fa fa-check"></i>
+  						</div>
+  						<div class="required-text">* Required Fields</div>
+  					</form>
+  				</div>
+  			</div>
+  		</div>
+  	</div> <!--End Container-->
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/ajaxloder.js"></script>
+</body>
+</html>

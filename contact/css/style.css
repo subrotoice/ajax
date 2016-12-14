@@ -1,0 +1,130 @@
+body {
+  background-color: #f7f7f7;
+  color: #6f6f6f;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 1.42857;
+}
+.contact-us {
+}
+.h2-style, h2 {
+  border-bottom: 1px solid #e8e8e8;
+  color: #333745;
+  font-family: Oswald,sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.75em;
+  margin: 0 0 30px;
+  padding: 0 0 2px;
+  text-transform: uppercase;
+}
+.address-block {
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+h3 {
+  color: #333745;
+  font-family: Raleway,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5em;
+  margin: 0 0 5px;
+  padding: 0;
+  text-transform: uppercase;
+}
+ul.simple-list {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+.text-wrapper {
+  margin-bottom: 50px;
+}
+form.white {
+  margin-bottom: 50px;
+}
+label {
+  color: #333745;
+  font-size: 14px;
+  font-weight: inherit;
+}
+form.white .form-control {
+  background-color: #fff;
+  border-color: #e8e8e8;
+  color: #333745;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+.form-control {
+  background-color: #f7f7f7;
+  border-radius: 0;
+  box-shadow: none !important;
+  color: #333745;
+  margin-bottom: 25px;
+}
+form.white .btn {
+  margin-bottom: 5px;
+}
+.btn-lg, .btn-primary-lg, button.action-lg {
+  border-width: 1px;
+  font-size: 16.5px;
+  height: auto;
+  padding: 4px 25px 3px;
+}
+.btn, .btn-primary, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn.focus, .btn:active, .btn:focus, button.action, button.action.focus, button.action:active, button.action:focus {
+  background-color: #f82e56;
+  border-color: #f82e56;
+  color: #fff;
+}
+.btn, .btn-primary, button.action {
+  border: 1px solid #f82e56;
+  border-radius: 0;
+  font-family: Roboto,sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  height: 41px;
+  line-height: 41px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.3, 1, 0.3, 1) 0s;
+}
+ul.simple-list i.fa {
+  color: #f82e56;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 10px 0 0;
+  vertical-align: inherit;
+}
+ul.simple-list li a {
+  color: #f82e56;
+}
+ul.simple-list i.fa {
+  color: #f82e56;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 10px 0 0;
+  vertical-align: inherit;
+}
+.input-lg {
+  height: 50px;
+  padding: 10px 30px;
+}
+.required, .required-text {
+  color: #f82e56;
+}
+#contactFormError, #contactFormSuccess {
+  display: none;
+  font-weight: 600;
+}
+.statusSign img, .statusSign i {
+  display: none;
+}
+.statusSign i {
+  color: #5cb85c;
+  font-size: 31px;
+}
+.input-lg {
+  font-weight: normal;
+  height: 53px;
+}
