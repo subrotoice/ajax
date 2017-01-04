@@ -9,9 +9,18 @@ $("form.contact-form").submit(function(evt){
     dataType: 'html'
   })
   .done(function(data){
-     $('.required-text').hide();
-     $('.statusSign img').hide();
-     $('.statusSign i').show();
+    var objData = jQuery.parseJSON( data );
+    if ( objData.status === "success" ) {
+      $('.required-text').hide();
+      $('.statusSign img').hide();
+      $('.statusSign i').addClass( 'fa-check' ).show("slow");
+      $('.information').html( objData.message );
+    } else {
+      $('.statusSign img').hide();
+      $('.statusSign i').addClass( 'fa-times' ).show("slow");
+      $('.information').html( objData.message );
+    }
+
   })
   .fail(function(){
     alert('Submit Failed ...');
