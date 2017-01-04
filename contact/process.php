@@ -13,7 +13,7 @@ $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'edevesweb@gmail.com';                 // SMTP username. Also Show as From
-$mail->Password = 'subroto99';                           // SMTP password
+$mail->Password = 'mypasswordforyou';                           // SMTP password
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
 
