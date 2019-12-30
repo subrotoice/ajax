@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vocabulary</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet">
+<style media="screen">
+.form-control, button {
+border-radius: 3px !important;
+margin-top: 10px;
+}
+.studentEntry {
+  display: none;
+}
+.studentDetails .form-control {
+  border: medium none;
+  height: 38px;
+  margin-top: 0;
+}
+.statusInfo {
+  border-radius: 3px;
+  font-size: 22px;
+  margin: 0;
+  padding: 10px;
+  display: none;
+  float: right;
+}
+
+/* Container holding the image and the text */
+.word-img {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 2px;
+    background: #fff;
+    color: brown;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: bold;
+}
+a#studentDetails {
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 10px;
+}
+div#txtHint {
+    border-right: 1px solid #ddd;
+}
+a.btn-outline-success {
+    border: 1px solid;
+}
+a.btn-outline-success:hover {
+    color:blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btna {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    /* white-space: nowrap; */
+    padding: 10px 18px;
+    font-size: 15px;
+    line-height: 1.42857143;
+}
+</style>
+</head>
+
+<body>
+<a href="http://127.0.0.1/voca/view.php"  target="_blank" class="btn btn-default btn-lg btn-block" style="margin-bottom:20px;">Repeat Repeat Repeat . . .</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <form  class="form-horizontal">
+        <div class="form-group">
+          <div class="col-lg-12">
+            <input class="form-control" id="name" placeholder="Search..." type="text" autocomplete="off">
+          </div>
+        </div>
+      </form>
+      <div class="list-group">
+        <h4 class="list-group-item active">Searched Vocabulary</h4>
+        <div id="txtHint"></div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="statusInfo alert alert-dismissible alert-success" style="opacity: 0; display: block;">Succefully Updated</div>
+      <div class="clearfix"> </div>
+
+      <div class="studentDetails"></div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="js/ajaxloder.js"></script>
+</body>
+</html>
