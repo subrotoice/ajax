@@ -1,3 +1,32 @@
+// Receive and handel json datea. Payment Date and Duration Update
+$("form.paymentEntry").submit(function(evt){
+  evt.preventDefault();
+  $.ajax({
+    url: 'savePayment.php',
+    type: 'POST',
+    data: $(this).serialize(), // it will serialize the form data
+    dataType: 'html'
+  })
+  .done(function( data ){
+    var obj = jQuery.parseJSON( data );
+    var userID = obj.userID;
+    var paymentDate = obj.paymentDate;
+    var content = obj.content;
+	// alert(userID);
+    $('form.paymentEntry-' + userID).hide(50, 0, function() {});
+	$('.savedPayment-' + userID).html( content ).fadeTo('slow', 1);
+  })
+  .fail(function(){
+    alert('Ajax Submit Failed ...');
+  });
+  $('form.studentEntry').trigger("reset");
+});
+
+// savePayment.php contain
+$return_arr =  array('userID' => "$userID",'paymentDate' => "$paymentDate", 'duration' => "$duration", "content" => "$paymentStatus");
+echo json_encode($return_arr);
+
+
 // Suggestion js
 $( "#name" ).keyup(function () {
   if ($(this).val().length == 0) {
