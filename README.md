@@ -9,12 +9,12 @@ http://edeves.com/ajax/contact <br />
   /* Select queries return a resultset */
   if (   $regex==0 ) {
       echo json_encode( array('status' => 'wrongFormat', 'message'=> 'Wrong Format User Exist') );
-  }
-  elseif ( $result->num_rows ) {
-      echo json_encode( array('status' => 'exist', 'message'=> 'User Exist') );
+  }<br />
+  elseif ( $result->num_rows ) {<br />
+      echo json_encode( array('status' => 'exist', 'message'=> 'User Exist') );<br />
   } else {
     echo json_encode( array('status' => 'notexist', 'message'=> 'User Not Exist') );
   }
-  
+  <br />
 // Js File
 var objData = jQuery.parseJSON( data ); // jQuery after feedback come
