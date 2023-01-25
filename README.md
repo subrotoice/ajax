@@ -18,4 +18,5 @@ http://edeves.com/ajax/contact <br />
   }
 // Js File
 var objData = jQuery.parseJSON( data ); // jQuery after feedback come
+objData.status to get value
 ```
