@@ -16,6 +16,7 @@ http://edeves.com/ajax/contact <br />
   } else {
     echo json_encode( array('status' => 'notexist', 'message'=> 'User Not Exist') );
   }
+  
 // Js File
 var objData = jQuery.parseJSON( data ); // jQuery after feedback come
 objData.status to get value
