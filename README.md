@@ -18,6 +18,9 @@ http://edeves.com/ajax/contact <br />
   }
   
 // Js File
-var objData = jQuery.parseJSON( data ); // jQuery after feedback come
-var status= objData.status; to get value
+$.get( url, function( data ) {
+    var objData = jQuery.parseJSON( data ); // jQuery after feedback come
+    var status= objData.status; // to get value
+  });
+});
 ```
