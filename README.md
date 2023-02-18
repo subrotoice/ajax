@@ -7,7 +7,9 @@ http://edeves.com/ajax/contact <br />
 
 ```
 // PHP feedback
-  /* Select queries return a resultset */
+  echo json_encode( array('amount' => $amount, 'message'=> $htmlMessage) ); // Simple
+  
+  /* Condition Select queries return a resultset */
   if (   $regex==0 ) {
       echo json_encode( array('status' => 'wrongFormat', 'message'=> 'Wrong Format User Exist') );
   }
