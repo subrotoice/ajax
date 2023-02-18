@@ -5,6 +5,10 @@ http://edeves.com/ajax/student <br />
 http://edeves.com/ajax/employee <br />
 http://edeves.com/ajax/contact <br />
 
+seba.edeves.com <br />
+food.edeves.com <br />
+voca.edeves.com <br />
+
 ```
 // PHP feedback
   echo json_encode( array('amount' => $amount, 'message'=> $htmlMessage) ); // Simple
