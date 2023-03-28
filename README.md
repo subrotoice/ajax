@@ -30,7 +30,9 @@ $.get( url, function( data ) {
   });
 });
 ```
+
 # File Dynamic Upload (Ajax)
+```
 <form id="form1" action="ajaxload.php" method="post" enctype="multipart/form-data">
     <div class="row form-group h-50">
       <div class="col-md-3"><input id="uploadImage" class="fileupload" type="file" accept="image/*" name="ecommerceLogo" /></div>
@@ -128,3 +130,4 @@ if(isset($_POST['presentor_id'])) {
       }
   }
 }
+```
