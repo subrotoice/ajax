@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 3rem;
+      }
+      #myForm {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: green;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      button[type="submit"]:hover {
+        background-color: rgb(22, 138, 22);
+      }
+      .dataStatus {
+        display: none;
+        text-align: center;
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="dataStatus">Data Inserted</h1>
+    <form id="myForm" class="myForm">
+      <h3>Send FormData objects with Ajax-requests</h3>
+      <label for="name">Name:</label>
+      <input type="text" name="name" />
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <label for="search">Search:</label>
+    <input type="text" class="search" name="search" placeholder="Search...." />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="ajaxLoad.js"></script>
+  </body>
+</html>
