@@ -1,3 +1,106 @@
+# AJAX CRUD
+
+### index.html
+
+```html
+<body>
+  <h1 class="dataStatus">Data Inserted</h1>
+  <form id="myForm" class="myForm">
+    <h3>Send FormData objects with Ajax-requests</h3>
+    <label for="name">Name:</label>
+    <input type="text" name="name" />
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <label for="search">Search:</label>
+  <input type="text" class="search" name="search" placeholder="Search...." />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="ajaxLoad.js"></script>
+</body>
+```
+
+```javascript
+// POST; inserting data
+$(".myForm").submit(function (evt) {
+  evt.preventDefault();
+  var formData = $(this).serialize();
+  $.ajax({
+    url: "ajaxAPI.php",
+    type: "POST",
+    data: $(this).serialize(), // data: formData
+    dataType: "html",
+  })
+    .done(function (response) {
+      var obj = jQuery.parseJSON(response); // maek JSON to JS Object
+      var name = obj.name;
+      var message = obj.message;
+      alert(message);
+      $(".dataStatus").css("display", "block");
+    })
+    .fail(function () {
+      alert("Ajax Submit Failed ...");
+    });
+  $("form.studentEntry").trigger("reset");
+});
+
+// Show Value Search
+$("input.search").blur(function () {
+  var searchValue = $(this).val();
+  var rateOrPromo = "Test";
+  var url =
+    "ajaxAPI.php?searchValue=" + searchValue + "&rateOrValue=" + rateOrPromo;
+  //   alert(url);
+  $.get(url, function (response) {
+    var obj = jQuery.parseJSON(response);
+    alert(obj.name);
+  });
+});
+```
+
+```php
+<?php
+// MySqli Connection
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "karkhana";
+$conn = new mysqli($host, $username, $password, $database);
+
+// HTTP/Ajax request handel
+// Insert
+if (isset($_POST["name"])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $sql = "INSERT INTO contact (name, email, msg) VALUES ( '$name', '$email', 'my test msg')";
+    $result = $conn->query($sql);
+    if($result){
+        echo json_encode( array('status' => $result, 'message'=> $sql) );
+    } else {
+        echo json_encode( array('status' => $result, 'message'=> 'Not Inserted') );
+    }
+}
+
+// Show
+// $_GET["searchValue"]=1; // It is for direct access from url
+if (isset($_GET["searchValue"])) {
+    $searchValue = $_GET["searchValue"];
+    $sql = "SELECT * FROM contact WHERE id=$searchValue";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        echo json_encode($row);
+      }
+    } else {
+      echo "0 results";
+    }
+}
+
+```
+
 # AJAX Code. Here 3 Project Included
 
 Demos are here <br />
@@ -12,7 +115,7 @@ voca.edeves.com <br />
 ```
 // PHP feedback
   echo json_encode( array('amount' => $amount, 'message'=> $htmlMessage) ); // Simple
-  
+
   /* Condition Select queries return a resultset */
   if (   $regex==0 ) {
       echo json_encode( array('status' => 'wrongFormat', 'message'=> 'Wrong Format User Exist') );
@@ -22,7 +125,7 @@ voca.edeves.com <br />
   } else {
     echo json_encode( array('status' => 'notexist', 'message'=> 'User Not Exist') );
   }
-  
+
 // Js File
 $.get( url, function( data ) {
     var objData = jQuery.parseJSON( data ); // jQuery after feedback come
@@ -32,6 +135,7 @@ $.get( url, function( data ) {
 ```
 
 # File Dynamic Upload (Ajax)
+
 ```
 <form id="form1" action="ajaxload.php" method="post" enctype="multipart/form-data">
     <div class="row form-group h-50">
@@ -42,7 +146,7 @@ $.get( url, function( data ) {
         <?php
           $target_dir = "ecommerceLogo/";
           $logoFileNameJpg = $target_dir . $usuario . '.jpg';
-          $logoFileNamePng = $target_dir . $usuario . '.png'; 
+          $logoFileNamePng = $target_dir . $usuario . '.png';
           $finalFileName = file_exists($logoFileNameJpg)?$logoFileNameJpg:$logoFileNamePng;
           // var_dump($finalFileName);
         ?>
@@ -133,6 +237,7 @@ if(isset($_POST['presentor_id'])) {
 ```
 
 # Vioniko ecommerce
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -150,7 +255,7 @@ if(isset($_POST['presentor_id'])) {
       <h4>Promo Code: </span>
   		<input type="text" name="promo" id="promo" class="promo form-control" placeholder="Update Promo" data-userid="3339">
       <button type="submit" class="button btn btn-primary"> Save </button> <span class="promoValue">Patrimonio</h4> <br>
-      <h4>Duration: 
+      <h4>Duration:
       <select name="duration" placeholder="*Selecciona Month" class="form-control"  id="duration" data-userid="3339">
         <option value="">*Selecciona tu Duration</option>
         <option value="1">1 Month</option>
@@ -168,7 +273,7 @@ if(isset($_POST['presentor_id'])) {
         <option value="24">2 Years</option>
       </select>
       <button type="submit" class="button btn btn-primary"> Save </button> <span class="durationValue">2 Months</span></h4> <br>
-      <h4>PayPal Email: 
+      <h4>PayPal Email:
   		<input type="text" name="paypal" id="paypal" class="paypal form-control" placeholder="Update PayPal Email" data-userid="3339">
       <button type="submit" class="button btn btn-primary"> Save </button> <span class="paypalValue"> sb-bqoez22343014@business.example.com</span></h4><br>
       <h4>Link After Login:
@@ -188,7 +293,7 @@ if(isset($_POST['presentor_id'])) {
       <textarea name="informationText" id="informationText" rows="4" cols="30"  class="informationText form-control" placeholder="Information Text" data-userid="3339"></textarea>
       <button type="submit" class="button btn btn-primary"> Save </button> <span class="informationTextValue"> Demo Test 22</span>
       </h4> <br >
-      
+
       <h4>Video Link:
   		<input type="text" name="videoLink" id="videoLink" class="videoLink form-control" placeholder="videoLink Text" data-userid="3339">
       <button type="submit" class="button btn btn-primary"> Save </button> <span class="videoLinkValue"> https://www.youtube.com/watch?v=ZnnJpJoIax8</span>
@@ -209,7 +314,7 @@ if(isset($_POST['presentor_id'])) {
 
       <div class="saveRateInfo"></div>
 		</div>
-        
+
 
     </div><!--rightpanel-->
 
@@ -300,7 +405,7 @@ if(isset($_POST['presentor_id'])) {
         alert('Ajax Submit Failed ...');
       });
     });
-   
+
 </script>
 </body>
 </html>
