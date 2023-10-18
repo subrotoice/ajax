@@ -1,6 +1,6 @@
 # AJAX CRUD
 
-### index.html
+index.html
 
 ```html
 <body>
@@ -22,6 +22,8 @@
   <script src="ajaxLoad.js"></script>
 </body>
 ```
+
+ajaxLoad.js
 
 ```javascript
 // POST; inserting data
@@ -60,6 +62,8 @@ $("input.search").blur(function () {
   });
 });
 ```
+
+ajaxAPI.php
 
 ```php
 <?php
