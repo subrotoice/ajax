@@ -131,3 +131,176 @@ if(isset($_POST['presentor_id'])) {
   }
 }
 ```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>VIONIKO | Primer Sistema de Marketing Colaborativo en el Mundo </title>
+<meta charset="UTF-8">
+
+<body>
+
+    <div class="rightpanel">
+		<div class="ecommerce" style="margin: 50px 0 0 50px;">
+    			<h4>Current rate:
+  		<input type="number" name="rate" id="rate" class="rate form-control" placeholder="New Rate" data-userid="3339">
+			<button type="submit" class="button btn btn-primary"> Save </button> $<span class="rateValue">55.00</span></h4> <br>
+      <h4>Promo Code: </span>
+  		<input type="text" name="promo" id="promo" class="promo form-control" placeholder="Update Promo" data-userid="3339">
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="promoValue">Patrimonio</h4> <br>
+      <h4>Duration: 
+      <select name="duration" placeholder="*Selecciona Month" class="form-control"  id="duration" data-userid="3339">
+        <option value="">*Selecciona tu Duration</option>
+        <option value="1">1 Month</option>
+        <option value="2">2 Months</option>
+        <option value="3">3 Months</option>
+        <option value="4">4 Months</option>
+        <option value="5">5 Months</option>
+        <option value="6">6 Months</option>
+        <option value="7">7 Months</option>
+        <option value="8">8 Months</option>
+        <option value="9">9 Months</option>
+        <option value="10">10 Months</option>
+        <option value="11">11 Months</option>
+        <option value="12">1 Year</option>
+        <option value="24">2 Years</option>
+      </select>
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="durationValue">2 Months</span></h4> <br>
+      <h4>PayPal Email: 
+  		<input type="text" name="paypal" id="paypal" class="paypal form-control" placeholder="Update PayPal Email" data-userid="3339">
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="paypalValue"> sb-bqoez22343014@business.example.com</span></h4><br>
+      <h4>Link After Login:
+  		<input type="text" name="linkAfterLogin" id="linkAfterLogin" class="linkAfterLogin form-control" placeholder="Link After Login" data-userid="3339">
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="linkAfterLoginValue"> </span>
+      <span class="info">( Keep Blank for Default link )</span>
+      </h4>      <br>
+      <h4>1st Level Commisions:
+  		<input type="number" name="firstLevelCommisions" id="firstLevelCommisions" class="firstLevelCommisions form-control" placeholder="ie. 25%" data-userid="3339">
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="firstLevelCommisionsValue"> 40%</span>
+      </h4> <br>
+      <h4>2nd Level Commisions:
+  		<input type="number" name="secondLevelCommisions" id="secondLevelCommisions" class="secondLevelCommisions form-control" placeholder="ie. 25%" data-userid="3339">
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="secondLevelCommisionsValue"> 15%</span>
+      </h4> <br>
+      <h4>Information Text:
+      <textarea name="informationText" id="informationText" rows="4" cols="30"  class="informationText form-control" placeholder="Information Text" data-userid="3339"></textarea>
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="informationTextValue"> Demo Test 22</span>
+      </h4> <br >
+      
+      <h4>Video Link:
+  		<input type="text" name="videoLink" id="videoLink" class="videoLink form-control" placeholder="videoLink Text" data-userid="3339">
+      <button type="submit" class="button btn btn-primary"> Save </button> <span class="videoLinkValue"> https://www.youtube.com/watch?v=ZnnJpJoIax8</span>
+      </h4> <br >
+
+      <form id="form1" action="ajaxload.php" method="post" enctype="multipart/form-data">
+          <div class="row form-group h-50">
+            <div class="col-md-3"><input id="uploadImage" class="fileupload" type="file" accept="image/*" name="ecommerceLogo" /></div>
+            <input type="hidden" name="presentor_id" value="3339">
+            <div class="col-md-2"><input class="btn btn-success" type="submit" value="Upload Logo"></div>
+            <div class="col-md-7">
+                              <a class="logoClass" href="ecommerceLogo/3339.png" target="_blank" rel="noopener noreferrer">
+                  <img width="50px" src="ecommerceLogo/3339.png" alt="">
+                </a>
+              </div>
+          </div>
+      </form>
+
+      <div class="saveRateInfo"></div>
+		</div>
+        
+
+    </div><!--rightpanel-->
+
+</div>
+
+<!--mainwrapper-->
+<script type="text/javascript">
+  // Rate Dynamic update
+	$("input, select, textarea.informationText").blur(function(){
+		var userid = $(this).data('userid');
+		var rateValue= $(this).val();
+    var rateOrPromo = $(this).attr("id");
+    if(rateValue=="" && rateOrPromo!="linkAfterLogin") {
+      exit();
+    }
+		var notificationClass= "saved" + userid;
+		var url = "ajaxload.php?userid=" + userid + "&"+ rateOrPromo +"=" + rateValue;
+		// alert( url );
+		$.get( url, function( data ) {
+      var objData = jQuery.parseJSON( data );
+      if(objData.rateOrPromo == 'rate') {
+        $( ".rateValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'promo') {
+        $( ".promoValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'duration') {
+        $( ".durationValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'paypal') {
+        $( ".paypalValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'linkAfterLogin') {
+        $( ".linkAfterLoginValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'firstLevelCommisions') {
+        $( ".firstLevelCommisionsValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'secondLevelCommisions') {
+        $( ".secondLevelCommisionsValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'informationText') {
+        $( ".informationTextValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else if(objData.rateOrPromo == 'videoLink') {
+        $( ".videoLinkValue" ).text( objData.message );
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+      } else {
+        message = "<p style='color: red; font-weight: bold;'> " + objData.message + "</p>";
+        $( ".saveRateInfo" ).html( message );
+      }
+
+		});
+  	});
+
+    // E-Commerce Logo Upload
+    $( document ).on( 'submit', 'form#form1', function(evt) {
+      evt.preventDefault();
+      $.ajax({
+        url: 'ajaxload.php',
+        type: 'POST',
+        data:  new FormData(this),
+        contentType: false,
+              cache: false,
+        processData:false
+      })
+      .done(function(data){
+        var objData = jQuery.parseJSON( data );
+        // alert(objData.message);
+        message = "<p style='color: green; font-weight: bold;'> " + objData.message + " Saved </p>";
+        $( ".saveRateInfo" ).html( message );
+        var imgName = "https://vioniko.com/ecommerceLogo/" + objData.message;
+        // alert(imgName);
+        $("a.logoClass").attr("href", imgName);
+        $("a.logoClass>img").attr("src", imgName);
+
+      })
+      .fail(function(){
+        alert('Ajax Submit Failed ...');
+      });
+    });
+   
+</script>
+</body>
+</html>
+```
