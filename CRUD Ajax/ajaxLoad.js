@@ -3,7 +3,7 @@ $(".myForm").submit(function (evt) {
   evt.preventDefault();
   var formData = $(this).serialize();
   $.ajax({
-    url: "ajaxAPI.php",
+    url: "ajaxAPI.php", // url: "agenda/ajax.php?action=create_event" also Possible Get+Post
     type: "POST",
     data: $(this).serialize(), // data: formData
     dataType: "html",
