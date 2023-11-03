@@ -61,6 +61,24 @@ $("input.search").blur(function () {
     alert(obj.name);
   });
 });
+
+// Form Data Submit (Another Example)
+var formData = $("#forma").serialize();
+$.ajax({
+        url: "grabar_evento2.php",
+        type: "POST",
+        data: formData,
+        dataType: "html",
+    })
+    .done(function(response) {
+        var responseObj = jQuery.parseJSON(response);
+        $('.response').html('<div class="alert alert-success" role="alert">' + responseObj.message + '</div>').fadeTo('slow', 1);
+        $('<tr><td>' + responseObj.date + '</td><td>' + responseObj.time + '</td><td>' + responseObj.type + '</td><td>' + responseObj.text + '</td><td> </td><td> </td><td> </td></tr>').prependTo('table.infoTable>tbody');
+        // alert(response);
+    })
+    .fail(function() {
+        alert("Ajax Submit Failed ...");
+    });
 ```
 
 ajaxAPI.php
