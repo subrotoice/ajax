@@ -49,7 +49,22 @@ $(".myForm").submit(function (evt) {
   $("form.studentEntry").trigger("reset");
 });
 
-// Show Value Search
+// POST without form data
+var formData = {
+name: "Subroto",
+email: "subroto.iu@gmail.com",
+};
+$.ajax({
+url: "ajaxAPI.php",
+type: "POST",
+data: formData,
+dataType: "html",
+})
+.done(function (response) {
+  var obj = jQuery.parseJSON(response); // maek JSON to JS Object
+  console.log(response);
+});
+// GET request, Show Value Search
 $("input.search").blur(function () {
   var searchValue = $(this).val();
   var rateOrPromo = "Test";
