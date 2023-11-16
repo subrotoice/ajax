@@ -1,7 +1,7 @@
 # AJAX CRUD
 
 ```javascript
-<form id="myForm">
+<form id="myForm"> 
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" />
   <label for="email">Email:</label>
