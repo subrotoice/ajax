@@ -16,6 +16,8 @@
       name: $("#name").val(), // Get form data
       email: $("#email").val(),
     }; // var formData = $("#myForm").serialize(); or var formData = $(this).serialize();
+       // var additionalData = { key1: "value1", key2: "value2", };
+       // formDataManually += "&" + $.param(additionalData); 4 keys: name, email, key1, key2
     $.ajax({
       url: "test.php",
       type: "POST", // GET/POST
