@@ -1,6 +1,7 @@
 # AJAX CRUD
 
 ```javascript
+// Smart Way
 <form id="myForm"> 
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" />
@@ -14,7 +15,7 @@
     var formDataManually = {
       name: $("#name").val(), // Get form data
       email: $("#email").val(),
-    };
+    }; // var formData = $("#myForm").serialize(); or var formData = $(this).serialize();
     $.ajax({
       url: "test.php",
       type: "POST",
