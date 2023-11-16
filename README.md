@@ -18,7 +18,7 @@
     }; // var formData = $("#myForm").serialize(); or var formData = $(this).serialize();
     $.ajax({
       url: "test.php",
-      type: "POST",
+      type: "POST", // GET/POST
       data: formDataManually,
       dataType: "json",
       encode: true,
