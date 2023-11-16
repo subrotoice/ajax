@@ -24,6 +24,8 @@
       encode: true,
       success: function (response) {
         console.log("Success:", response); // Handle success
+  	var obj = jQuery.parseJSON(response); // maek JSON to JS Object
+	console.log(obj.name);
       },
       error: function (error) {
         console.error("Error:", error); // Handle error
@@ -36,44 +38,6 @@
 ajaxLoad.js
 
 ```javascript
-// POST; inserting data
-$(".myForm").submit(function (evt) {
-  evt.preventDefault();
-  var formData = $(this).serialize();
-  $.ajax({
-    url: "ajaxAPI.php",
-    type: "POST",
-    data: $(this).serialize(), // data: formData
-    dataType: "html",
-  })
-    .done(function (response) {
-      var obj = jQuery.parseJSON(response); // maek JSON to JS Object
-      var name = obj.name;
-      var message = obj.message;
-      alert(message);
-      $(".dataStatus").css("display", "block");
-    })
-    .fail(function () {
-      alert("Ajax Submit Failed ...");
-    });
-  $("form.studentEntry").trigger("reset");
-});
-
-// POST without form data
-var formData = {
-name: "Subroto",
-email: "subroto.iu@gmail.com",
-};
-$.ajax({
-url: "ajaxAPI.php",
-type: "POST",
-data: formData,
-dataType: "html",
-})
-.done(function (response) {
-  var obj = jQuery.parseJSON(response); // maek JSON to JS Object
-  console.log(response);
-});
 // GET request, Show Value Search
 $("input.search").blur(function () {
   var searchValue = $(this).val();
@@ -107,17 +71,12 @@ $.ajax({
 ```
 
 ajaxAPI.php
-
 ```php
 <?php
 // MySqli Connection
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "karkhana";
+$host = "localhost"; $username = "root"; $password = ""; $database = "karkhana";
 $conn = new mysqli($host, $username, $password, $database);
 
-// HTTP/Ajax request handel
 // Insert
 if (isset($_POST["name"])) {
     $name = $_POST['name'];
