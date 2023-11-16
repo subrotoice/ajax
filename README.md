@@ -1,26 +1,35 @@
 # AJAX CRUD
 
-index.html
+```javascript
+<form id="myForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" />
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" />
+  <button type="button" onclick="submitForm()">Submit</button>
+</form>
 
-```html
-<body>
-  <h1 class="dataStatus">Data Inserted</h1>
-  <form id="myForm" class="myForm">
-    <h3>Send FormData objects with Ajax-requests</h3>
-    <label for="name">Name:</label>
-    <input type="text" name="name" />
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" />
-    <input type="submit" value="Submit" />
-  </form>
-
-  <label for="search">Search:</label>
-  <input type="text" class="search" name="search" placeholder="Search...." />
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="ajaxLoad.js"></script>
-</body>
+<script>
+  function submitForm() {
+    var formDataManually = {
+      name: $("#name").val(), // Get form data
+      email: $("#email").val(),
+    };
+    $.ajax({
+      url: "test.php",
+      type: "POST",
+      data: formDataManually,
+      dataType: "json",
+      encode: true,
+      success: function (response) {
+        console.log("Success:", response); // Handle success
+      },
+      error: function (error) {
+        console.error("Error:", error); // Handle error
+      },
+    });
+  }
+</script>
 ```
 
 ajaxLoad.js
