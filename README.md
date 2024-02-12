@@ -418,3 +418,15 @@ if(isset($_POST['presentor_id'])) {
 </body>
 </html>
 ```
+
+##Insert of Update
+~~~PHP
+// Check if the record exists
+$result = $conn->query("SELECT * FROM gptapi WHERE id = $gptApiId");
+
+if ($result->num_rows > 0) {
+$sql = "UPDATE gptapi SET description='$promptText' WHERE id='$gptApiId'";
+} else {
+$sql = "INSERT INTO gptapi (name, description) VALUES ('prompt', '$promptText')";
+}
+~~~
