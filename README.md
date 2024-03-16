@@ -9,7 +9,8 @@
   <input type="email" id="email" name="email" />
   <button type="button" onclick="submitForm()">Submit</button>
 </form>
-
+```
+```javascript
 <script>
   function submitForm() {
     var formDataManually = {
@@ -18,6 +19,7 @@
     }; // var formData = $("#myForm").serialize(); or var formData = $(this).serialize();
        // var additionalData = { key1: "value1", key2: "value2", };
        // formDataManually += "&" + $.param(additionalData); 4 keys: name, email, key1, key2
+       // var formValues = $('#formContainer :input').serializeArray();  Store as array, later on you can delete or add as array
     $.ajax({
       url: "test.php",
       type: "POST", // GET/POST
