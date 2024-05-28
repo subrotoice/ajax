@@ -1,6 +1,6 @@
 # AJAX CRUD
 
-```javascript
+```html
 // Smart Way
 <form id="myForm"> 
   <label for="name">Name:</label>
@@ -10,6 +10,24 @@
   <button type="button" onclick="submitForm()">Submit</button>
 </form>
 ```
+```javascript
+// Using browser fetch api
+fetch("https://svioniko.com/ajaxload.php?userId=" + userId, {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch((error) => {
+    // Network error
+    console.error("Network error:", error);
+    // alert("Network error occurred while trying to delete user.");
+  });
+```
+
+
 ```javascript
 <script>
   function submitForm() {
