@@ -12,19 +12,25 @@
 ```
 ```javascript
 // Using browser fetch api
-fetch("https://svioniko.com/ajaxload.php?userId=" + userId, {
-  method: "DELETE",
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json))
-  .catch((error) => {
-    // Network error
-    console.error("Network error:", error);
-    // alert("Network error occurred while trying to delete user.");
-  });
+    fetch("https://vioniko.com/ajaxload.php", {
+      method: "DELETE",
+      headers: {
+	"Content-Type": "application/json",
+      },
+      body: new URLSearchParams({
+	formId: formId,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+	console.log(json.formId);
+	$(this).closest("tr").remove();
+      })
+      .catch((error) => {
+	// Network error
+	console.error("Network error:", error);
+	// alert("Network error occurred while trying to delete user.");
+      });
 ```
 
 
